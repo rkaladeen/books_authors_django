@@ -1,0 +1,77 @@
+Book.objects.create(title="C Sharp", desc="Programming Language")
+Book.objects.create(title="Java", desc="Programming Language")
+Book.objects.create(title="Python", desc="Programming Language")
+Book.objects.create(title="PHP", desc="Programming Language")
+Book.objects.create(title="Ruby", desc="Programming Language")
+
+Author.objects.create(first_name="Jane", last_name="Austen", notes="#")
+Author.objects.create(first_name="Emily", last_name="Dickinson", notes="#")
+Author.objects.create(first_name="Fyodor", last_name="Dostoevksy", notes="#")
+Author.objects.create(first_name="William", last_name="Shakespeare", notes="#")
+Author.objects.create(first_name="Lau", last_name="Tzu", notes="#")
+
+book = Book.objects.get(title="C Sharp")
+book.title = "C#"
+book.save()
+
+author4 = Author.objects.get(id=4)
+autho4r.first_name = "Bill"
+author4.save()
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+author1 = Author.objects.first()
+author1.books.add(book1)
+author1.books.add(book2)
+author1.save()
+author1.books.all().values()
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+author2 = Author.objects.get(id=2)
+author2.books.add(book1)
+author2.books.add(book2)
+author2.books.add(book3)
+author2.save()
+author2.books.all().values()
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+author3 = Author.objects.get(id=3)
+author3.books.add(book1)
+author3.books.add(book2)
+author3.books.add(book3)
+author3.books.add(book4)
+author3.save()
+author3.books.all().values()
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+book5 = Book.objects.get(id=5)
+author4 = Author.objects.get(id=4)
+author4.books.add(book1)
+author4.books.add(book2)
+author4.books.add(book3)
+author4.books.add(book4)
+author4.books.add(book5)
+author4.save()
+author4.books.all().values()
+
+book3.authors.all().values()
+
+book3.authors.remove(author1)
+book3.save()
+
+author5 = Author.objects.get(id=5)
+book2.authors.add(author5)
+book2.save()
+book2.authors.all().values()
+
+author3.books.all().values()
+
+book5.authors.all().values()
