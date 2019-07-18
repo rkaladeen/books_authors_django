@@ -19,13 +19,15 @@
 
     <div class="row">
       <div class="left-pane col-6">
-        <h3>Add a Book</h3>
-        <form action="/add-book/" method="POST" id="add-book">
+        <h3>Add an Author</h3>
+        <form action="/add-author/" method="POST" id="add-book">
           {% csrf_token %}
-          <label for="title">Title</label>
-          <input type="text" class="form-control" name="title">
-          <label for="desc">Description</label>
-          <textarea rows="2" class="form-control" name="desc"></textarea>
+          <label for="title">First Name</label>
+          <input type="text" class="form-control" name="fname">
+          <label for="title">Last Name</label>
+          <input type="text" class="form-control" name="lname">
+          <label for="desc">Notes</label>
+          <textarea rows="2" class="form-control" name="note"></textarea>
           <input type="submit" value="Add" class="btn btn-primary mt-3">
         </form>
       </div> <!-- END OF LEFT-PANE-->
@@ -36,16 +38,16 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Title</th>
+              <th scope="col">Name</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            {% for book in all_books %}
+            {% for author in all_authors %}
               <tr>
-                <th scope="row">{{book.id}}</th>
-                <td>{{book.title}}</td>
-                <td><a class="btn btn-secondary btn-sm" href="/books/{{book.id}}" role="button">View</a></td>
+                <th scope="row">{{author.id}}</th>
+                <td>{{author.first_name}} {{author.last_name}}</td>
+                <td><a class="btn btn-secondary btn-sm" href="/authors/{{author.id}}" role="button">View</a></td>
               </tr>
             {% endfor %}
           </tbody>
